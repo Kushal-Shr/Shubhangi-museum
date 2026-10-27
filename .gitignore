@@ -1,0 +1,40 @@
+node_modules
+dist
+.vite
+*.log
+.DS_Store
+.env
+.env.*
+!.env.example
+coverage
+*.tsbuildinfo
+private-media/
+
+# Personal originals, generated photos and local gallery metadata
+/memories/
+/shubhangi-pictures/
+/apps/web/public/media/
+/apps/web/public/museum-preview.jpg
+/apps/web/src/config/gallery-photos.json
+
+# Downloaded character binaries stay local; retain public attribution files
+*.glb
+*.gltf
+*.fbx
+*.blend
+*.zip
+/apps/web/public/models/*
+!/apps/web/public/models/credits.html
+
+# Credentials and machine-specific files
+.npmrc
+*.pem
+*.key
+*.p12
+*.pfx
+.vercel/
+.agents/
+.codex/
+__pycache__/
+*.pyc
+/public-release/

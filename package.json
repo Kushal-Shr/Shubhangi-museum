@@ -1,0 +1,30 @@
+{
+  "name": "museum-of-us",
+  "private": true,
+  "version": "0.1.0",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "dev": "concurrently -n web,server,shared -c magenta,cyan,yellow \"npm run dev -w @museum/web\" \"npm run dev -w @museum/server\" \"npm run dev -w @museum/shared\"",
+    "dev:web": "npm run dev -w @museum/web",
+    "dev:server": "npm run dev -w @museum/server",
+    "typecheck": "npm run typecheck -ws --if-present",
+    "test": "npm run test -ws --if-present",
+    "build": "npm run build -w @museum/shared && npm run build -w @museum/server && npm run build -w @museum/web",
+    "test:multiplayer": "node scripts/multiplayer-smoke.mjs",
+    "predev": "npm run build -w @museum/shared",
+    "test:physics": "node scripts/physics-smoke.mjs",
+    "test:avatars": "vitest run scripts/avatar.test.ts",
+    "test:celebration": "vitest run scripts/celebration.test.ts"
+  },
+  "devDependencies": {
+    "concurrently": "^9.2.1",
+    "typescript": "^5.9.3",
+    "vitest": "^3.2.4"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
